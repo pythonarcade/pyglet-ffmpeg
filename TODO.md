@@ -1,7 +1,5 @@
 # Now
 
-- Make a NOTICE for any legal points
-
 - Update the README: what it is, why, developer notes, relationship to
   Arcade, usage outside pyglet, usage, badges,
 
@@ -27,4 +25,7 @@
 # Done
 
 - Start a to do file
+
+- Make a NOTICE for any legal points
+
 
