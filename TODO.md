@@ -11,6 +11,9 @@
 - `python setup.py bdist_wheel` should create platform dependant wheels
   and copying only the needed binaries.
 
+- `python setup.py bdist_wheel` should create platform dependant wheels
+  and copying only the needed binaries.
+
 # Eventually
 
 - tox
@@ -44,3 +47,6 @@
 - Added all Windows and Mac OS binaries
 
 - ReadTheDocs
+
+- Added all Windows and Mac OS binaries
+
