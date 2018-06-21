@@ -7,6 +7,9 @@
 - Travis: build and push docs, build and push wheels, run tests and
   coverage,
 
+- `python setup.py bdist_wheel` should create platform dependant wheels
+  and copying only the needed binaries.
+
 # Eventually
 
 - tox
@@ -36,4 +39,6 @@
 - bumpversion
 
 - gitchangelog
+
+- Added all Windows and Mac OS binaries
 

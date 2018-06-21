@@ -27,4 +27,7 @@ setup(
     install_requires=[
         'pyglet',
     ],
+    package_data={
+        'pyglet_ffmpeg': ['Win32/*.dll', 'Win64/*.dll', 'MacOS/*.dylib']
+    },
 )
