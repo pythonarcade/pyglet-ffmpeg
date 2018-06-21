@@ -1,7 +1,6 @@
 # Now
 
-- Update the README: what it is, why, developer notes, relationship to
-  Arcade, usage outside pyglet, usage, badges,
+- Update the README: usage outside pyglet, badges,
 
 - Make a setup.py with pinned pyglet
 
@@ -27,5 +26,8 @@
 - Start a to do file
 
 - Make a NOTICE for any legal points
+
+- Update the README: what it is, why, developer notes, relationship to
+  Arcade
 
 

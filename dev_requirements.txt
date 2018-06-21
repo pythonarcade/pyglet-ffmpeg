@@ -1,0 +1,9 @@
+sphinx
+gitchangelog
+bumpversion
+pytest
+pytest-mock
+travis-encrypt
+coverage
+doctr
+tox
