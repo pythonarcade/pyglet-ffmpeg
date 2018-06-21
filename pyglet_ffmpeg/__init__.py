@@ -1,1 +1,2 @@
-#
+def hello():
+    return 'World'

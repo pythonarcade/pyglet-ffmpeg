@@ -1,21 +1,24 @@
 # Now
 
-- Sphinx: initial generation, RTD
-
-- Tests: pytest.ini, coverage, tox
-
-# Next
-
-- Travis: build and push docs, build and push wheels, run tests and
-  coverage,
-
 - bumpversion
 
 - gitchangelog
 
+# Next
+
+- ReadTheDocs
+
+- Travis: build and push docs, build and push wheels, run tests and
+  coverage,
+
 # Eventually
 
+- tox
+
 - Update the README: usage outside pyglet, badges,
+
+- Some self-test mode command-line flag to play some sample audio
+  files and dump debug information (e.g. where it found its binaries)
 
 # Done
 
@@ -29,3 +32,7 @@
 - Make a setup.py with pyglet
 
 - dev_requirements.txt
+
+- Sphinx: initial generation
+
+- Tests: pytest.ini, coverage

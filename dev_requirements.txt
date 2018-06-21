@@ -3,7 +3,9 @@ gitchangelog
 bumpversion
 pytest
 pytest-mock
+pytest-cov
 travis-encrypt
 coverage
 doctr
 tox
+sphinx_rtd_theme
