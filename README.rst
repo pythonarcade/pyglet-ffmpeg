@@ -3,6 +3,8 @@ pyglet-ffmpeg
 
 Provide binary wheels for using ffmpeg with pyglet on certain platforms.
 
+`Documentation <https://pyglet-ffmpeg.readthedocs.io/>`_
+
 Background
 ==========
 
