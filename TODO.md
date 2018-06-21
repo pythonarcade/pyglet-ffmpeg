@@ -1,9 +1,5 @@
 # Now
 
-- bumpversion
-
-- gitchangelog
-
 # Next
 
 - ReadTheDocs
@@ -36,3 +32,8 @@
 - Sphinx: initial generation
 
 - Tests: pytest.ini, coverage
+
+- bumpversion
+
+- gitchangelog
+
