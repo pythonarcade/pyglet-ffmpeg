@@ -63,7 +63,7 @@ PyPI
 
 Releases are pushed to PyPI from Travis, using the
 `regular TravisCI-PyPI scheme <https://docs.travis-ci.com/user/deployment/pypi/>`_.
-A push to master triggers not just the rest of the Travis build, but also the
+A push to a tag triggers not just the rest of the Travis build, but also the
 upload to PyPI of the new version...hands-free, from Travis.
 
 Dev/Release Process
@@ -84,3 +84,4 @@ Thus, the dev/release process works a little something like this:
 - Run ``gitchangelog > CHANGES.rst``
 
 - Commit, push with tags
+

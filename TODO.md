@@ -1,11 +1,12 @@
 # Now
 
+- Travis: Run tests and coverage
+
 # Next
 
-- ReadTheDocs
+# Later
 
-- Travis: build and push docs, build and push wheels, run tests and
-  coverage,
+- Travis: build and push wheels to PyPI
 
 - `python setup.py bdist_wheel` should create platform dependant wheels
   and copying only the needed binaries.
@@ -42,3 +43,4 @@
 
 - Added all Windows and Mac OS binaries
 
+- ReadTheDocs
