@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='pyglet_ffmpeg',
-    version='0.0.1.dev0',
+    version='0.0.1.dev1',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
