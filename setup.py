@@ -14,7 +14,7 @@ setup(
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
     author='Daniel Gillet',
-    author_email='TODO',  # TODO Daniel provide email
+    author_email='dan.gillet737@gmail.com',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
