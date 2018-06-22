@@ -32,31 +32,26 @@ Version Numbering
 This project uses semantic versioning. To ensure the scheme is enforced
 and to update all locations of the version number (setup.py, doc/conf.py,
 pyglet_ffmpeg/__init__.py), we use
-`bumpversion <https://github.com/peritus/bumpversion>`_ to set our version
+`bump2version <https://github.com/c4urself/bump2version>`_ to set our version
 numbers.
 
 Bump the version using
-`bumpversion commands <https://github.com/peritus/bumpversion/issues/77#issuecomment-130696156>`_:
+`bump2version commands <https://github.com/peritus/bump2version/issues/77#issuecomment-130696156>`_:
 
-- `bumpversion patch: 0.1.0 -> 0.1.1.dev0`
+- `bump2version patch: 0.1.0 -> 0.1.1.dev0`
 
-- `bumpversion release: 0.1.1.dev0 -> 0.1.1`
+- `bump2version release: 0.1.1.dev0 -> 0.1.1`
 
-- `bumpversion minor: 0.1.1 -> 0.2.0.dev0`
+- `bump2version minor: 0.1.1 -> 0.2.0.dev0`
 
-- `bumpversion dev: 0.2.0.dev0 -> 0.2.0.dev1`
+- `bump2version dev: 0.2.0.dev0 -> 0.2.0.dev1`
 
-- `bumpversion release: 0.2.0.dev1 -> 0.2.0#. Tag the release.`
+- `bump2version release: 0.2.0.dev1 -> 0.2.0#. Tag the release.`
 
 It's a little bit of a hassle but better than doing it manually.
 
-Changelog
-=========
-
-The changelog is an important part of documentation. We use the Python package
-`gitchangelog <https://github.com/vaab/gitchangelog>`_ to generate a readable,
-organized changelog from git information. This is written into ``CHANGES.rst``
-(alas, after a commit...as it needs the change information in the history.)
+Also, we set the ``bump2version`` config file to automatically tag
+and commit.
 
 PyPI
 ====
@@ -65,23 +60,3 @@ Releases are pushed to PyPI from Travis, using the
 `regular TravisCI-PyPI scheme <https://docs.travis-ci.com/user/deployment/pypi/>`_.
 A push to a tag triggers not just the rest of the Travis build, but also the
 upload to PyPI of the new version...hands-free, from Travis.
-
-Dev/Release Process
-===================
-
-Thus, the dev/release process works a little something like this:
-
-- Make a branch
-
-- Run ``bumpversion dev``
-
-- Finish work, merge to master, commit
-
-- Run ``bumpversion release``
-
-- Commit, tag
-
-- Run ``gitchangelog > CHANGES.rst``
-
-- Commit, push with tags
-

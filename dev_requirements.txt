@@ -1,6 +1,6 @@
 sphinx
 gitchangelog
-bumpversion
+bump2version
 pytest
 pytest-mock
 pytest-cov
