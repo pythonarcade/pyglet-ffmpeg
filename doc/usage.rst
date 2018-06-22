@@ -11,13 +11,17 @@ release (v1.3.2) does support FFmpeg at all. There is an unstable release (v1.4.
 but it's using FFmpeg v3.
 
 In order to make things work, you will need to install pyglet from Bitbucket
-repository. ::
+repository:
 
-    pip install -e hg+https://bitbucket.org/pyglet/pyglet/branch/default#egg=pyglet
+.. code-block:: bash
 
-You install pyglet-ffmpeg using pip: ::
+    $ pip install -e hg+https://bitbucket.org/pyglet/pyglet/branch/default#egg=pyglet
 
-    pip install pyglet-ffmpeg
+You install pyglet-ffmpeg using pip:
+
+.. code-block:: bash
+
+    $ pip install pyglet-ffmpeg
 
 Usage
 =====
@@ -35,7 +39,7 @@ Example using Pyglet
 Let's say you have an audio file `laser1.ogg` in the same directory as this script.
 Here is a minimal example which would play the sound.
 
-.. code::
+.. code-block:: python
 
     import pyglet
     import pyglet_ffmpeg

@@ -28,10 +28,18 @@ the ffmpeg binaries.
 Installation
 ============
 
-TODO
+.. note::
 
-Developing
-==========
+    At this early stage, pyglet-ffmpeg relies on an unreleased version
+    pyglet. Also, we only support Windows and macOS. For Linux, install
+    your ffmpeg binaries yourself, using your packaging tools.
 
-TODO
+.. code-block:: bash
+
+    $ pip install -e hg+https://bitbucket.org/pyglet/pyglet/branch/default#egg=pyglet
+    $pip install pyglet-ffmpeg
+
+More information, including docs for developing pyglet-ffmpeg itself and
+API docs, are available
+`in the docs <https://pyglet-ffmpeg.readthedocs.io>`_.
 
