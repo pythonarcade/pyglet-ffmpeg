@@ -1,6 +1,7 @@
-from setuptools import setup, find_packages
 from codecs import open
 from os import path
+
+from setuptools import setup, find_packages
 from wheel.bdist_wheel import bdist_wheel
 
 here = path.abspath(path.dirname(__file__))

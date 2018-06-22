@@ -8,3 +8,4 @@ travis-encrypt
 coverage
 tox
 sphinx_rtd_theme
+wheel
