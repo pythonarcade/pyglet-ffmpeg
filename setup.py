@@ -1,13 +1,29 @@
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
+from wheel.bdist_wheel import bdist_wheel
 
 here = path.abspath(path.dirname(__file__))
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+plat_pkg_data = {
+    'win_amd64': ['Win64/*.dll'],
+    'win32': ['Win32/*.dll'],
+    'macosx': ['MacOS/*.dylib']
+}
+
+
+class _bdist_wheels(bdist_wheel):
+    def finalize_options(self):
+        super().finalize_options()
+        pkg_data = plat_pkg_data[self.plat_name]
+        self.distribution.package_data = {'pyglet_ffmpeg': pkg_data}
+
+
 setup(
+    cmdclass={'bdist_wheel': _bdist_wheels},
     name='pyglet_ffmpeg',
     version='0.0.1.dev1',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
@@ -25,9 +41,6 @@ setup(
     keywords='pyglet ffmpeg audio arcade',
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=[
-        'pyglet',
+        'pyglet >= 1.4.0a1',
     ],
-    package_data={
-        'pyglet_ffmpeg': ['Win32/*.dll', 'Win64/*.dll', 'MacOS/*.dylib']
-    },
 )
