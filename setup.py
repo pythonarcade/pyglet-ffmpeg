@@ -25,7 +25,7 @@ class _bdist_wheels(bdist_wheel):
 setup(
     cmdclass={'bdist_wheel': _bdist_wheels},
     name='pyglet_ffmpeg',
-    version='0.0.1.dev1',
+    version='0.0.2.dev0',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
