@@ -5,6 +5,7 @@ Welcome to pyglet_ffmpeg
    :maxdepth: 2
    :caption: Contents:
 
+   usage
    development
 
 
