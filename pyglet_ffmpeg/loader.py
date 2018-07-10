@@ -6,7 +6,7 @@
 
 import sys
 import os
-import pyglet.media
+import pyglet
 
 
 def load_ffmpeg():
@@ -27,7 +27,7 @@ def _locate_binaries():
     Once binaries are correctly located, set the relevant environment
     variable to point to the binaries.
 
-    On Windows this is PATH. On Mac OS this is LD_LIBRARY_PATH.
+    On Windows this is PATH. On Mac OS and linux this is LD_LIBRARY_PATH.
     """
 
     this_dir = os.path.abspath(os.path.dirname(__file__))
@@ -47,6 +47,39 @@ def _locate_binaries():
         env_var = 'LD_LIBRARY_PATH'
         pyglet.options['audio'] = ('openal', 'pulse', 'silent')
 
+    elif sys.platform.startswith('linux'):
+        path = os.path.join(this_dir, 'linux_x86_64')
+        _ensure_linux_symlinks(path)
+        env_var = 'LD_LIBRARY_PATH'
+        pyglet.options['audio'] = ('openal', 'pulse', 'silent')
+
     paths = os.environ.get(env_var, '').split(os.pathsep)
     paths.append(path)
     os.environ[env_var] = os.pathsep.join(paths)
+
+    if sys.platform.startswith('linux'):
+        # On linux, refresh the cache to take LD_LIBRARY_PATH into account
+        pyglet.lib.loader._create_ld_so_cache()
+
+
+def _ensure_linux_symlinks(bin_folder):
+    """Create symlinks to the libav shared binary files.
+
+    On Linux, each so file needs 2 symlinks to work correctly. As it's not possible
+    to package symlinks we need to create them manually. This will only run once.
+    """
+    links = {
+        'libavcodec.so.58.21.104': ('libavcodec.so.58', 'libavcodec.so'),
+        'libavformat.so.58.17.101': ('libavformat.so.58', 'libavformat.so'),
+        'libswresample.so.3.2.100': ('libswresample.so.3', 'libswresample.so'),
+        'libavfilter.so.7.25.100': ('libavfilter.so.7', 'libavfilter.so'),
+        'libavutil.so.56.18.102': ('libavutil.so.56', 'libavutil.so'),
+        'libswscale.so.5.2.100': ('libswscale.so.5', 'libswscale.so')
+    }
+    for sofile, symlinks in links.items():
+        for symlink in symlinks:
+            if not os.path.isfile(os.path.join(bin_folder, symlink)):
+                os.symlink(
+                    os.path.join(bin_folder, sofile),
+                    os.path.join(bin_folder, symlink)
+                )

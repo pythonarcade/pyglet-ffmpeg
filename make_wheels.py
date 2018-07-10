@@ -4,7 +4,7 @@
 import subprocess
 import shutil
 
-platforms = ['win_amd64', 'win32', 'macosx_10_5_x86_64']
+platforms = ['win_amd64', 'win32', 'macosx_10_5_x86_64', 'manylinux1_x86_64']
 
 if __name__ == '__main__':
     for platform in platforms:

@@ -12,7 +12,8 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 plat_pkg_data = {
     'win_amd64': ['Win64/*.dll'],
     'win32': ['Win32/*.dll'],
-    'macosx_10_5_x86_64': ['MacOS/*.dylib']
+    'macosx_10_5_x86_64': ['MacOS/*.dylib'],
+    'manylinux1_x86_64': ['linux_x86_64/*.so*']
 }
 
 
