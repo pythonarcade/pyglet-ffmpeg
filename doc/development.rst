@@ -79,8 +79,7 @@ To make new binaries for Ubuntu, here are the required steps:
       texinfo \
       wget \
       zlib1g-dev \
-      yasm \
-      patchelf
+      yasm
 
     mkdir -p ~/ffmpeg_sources ~/bin
 
@@ -94,6 +93,15 @@ To make new binaries for Ubuntu, here are the required steps:
     make install
 
     cd ~/ffmpeg_sources && \
+    wget https://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.bz2 && \
+    tar xjvf patchelf-0.9.tar.bz2 && \
+    cd patchelf-0.9 && \
+    autoreconf --verbose --install --force --warnings=all && \
+    PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" && \
+    make && \
+    make install
+
+    cd ~/ffmpeg_sources && \
     wget -O ffmpeg-snapshot.tar.bz2 https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
     tar xjvf ffmpeg-snapshot.tar.bz2 && \
     cd ffmpeg && \
@@ -101,6 +109,8 @@ To make new binaries for Ubuntu, here are the required steps:
       --prefix="$HOME/ffmpeg_build" \
       --extra-cflags="-I$HOME/ffmpeg_build/include" \
       --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+      --extra-ldsoflags="-Wl,-rpath,$ORIGIN" \
+      --extra-ldexeflags="-Wl,-rpath,$ORIGIN" \
       --extra-libs="-lpthread -lm" \
       --bindir="$HOME/bin" \
       --disable-programs \
@@ -120,7 +130,7 @@ dependencies.
 .. code-block:: bash
 
     for file in *.so.*.*;
-        do patchelf --set-rpath \$ORIGIN "$file";
+        do ~/bin/patchelf --set-rpath \$ORIGIN "$file";
     done;
 
 
