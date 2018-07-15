@@ -13,7 +13,8 @@ plat_pkg_data = {
     'win_amd64': ['Win64/*.dll'],
     'win32': ['Win32/*.dll'],
     'macosx_10_5_x86_64': ['MacOS/*.dylib'],
-    'manylinux1_x86_64': ['linux_x86_64/*.so*']
+    'manylinux1_x86_64': ['linux_x86_64/*.so.*.*.*'],
+    'linux-armv7l': ['RPi/*.so.*.*.*'],
 }
 
 
@@ -27,7 +28,7 @@ class _bdist_wheels(bdist_wheel):
 setup(
     cmdclass={'bdist_wheel': _bdist_wheels},
     name='pyglet_ffmpeg',
-    version='0.1.2',
+    version='0.1.3.dev0',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
