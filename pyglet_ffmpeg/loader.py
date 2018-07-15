@@ -6,6 +6,7 @@
 
 import sys
 import os
+import glob
 import pyglet
 
 
@@ -48,7 +49,10 @@ def _locate_binaries():
         pyglet.options['audio'] = ('openal', 'pulse', 'silent')
 
     elif sys.platform.startswith('linux'):
-        path = os.path.join(this_dir, 'linux_x86_64')
+        if 'armv7l' in sys.platform:
+            path = os.path.join(this_dir, 'RPi')
+        else:
+            path = os.path.join(this_dir, 'linux_x86_64')
         _ensure_linux_symlinks(path)
         env_var = 'LD_LIBRARY_PATH'
         pyglet.options['audio'] = ('openal', 'pulse', 'silent')
@@ -69,14 +73,15 @@ def _ensure_linux_symlinks(bin_folder):
     to package symlinks we need to create them manually. This will only run once.
     """
     links = {
-        'libavcodec.so.58.21.104': ('libavcodec.so.58', 'libavcodec.so'),
-        'libavformat.so.58.17.101': ('libavformat.so.58', 'libavformat.so'),
-        'libswresample.so.3.2.100': ('libswresample.so.3', 'libswresample.so'),
-        'libavfilter.so.7.25.100': ('libavfilter.so.7', 'libavfilter.so'),
-        'libavutil.so.56.18.102': ('libavutil.so.56', 'libavutil.so'),
-        'libswscale.so.5.2.100': ('libswscale.so.5', 'libswscale.so')
+        'libavcodec.so.58.*': ('libavcodec.so.58', 'libavcodec.so'),
+        'libavformat.so.58.*': ('libavformat.so.58', 'libavformat.so'),
+        'libswresample.so.3.*': ('libswresample.so.3', 'libswresample.so'),
+        'libavfilter.so.7.*': ('libavfilter.so.7', 'libavfilter.so'),
+        'libavutil.so.56.*': ('libavutil.so.56', 'libavutil.so'),
+        'libswscale.so.5.*': ('libswscale.so.5', 'libswscale.so')
     }
-    for sofile, symlinks in links.items():
+    for glob_sofile, symlinks in links.items():
+        sofile = glob.glob(glob_sofile)[0]
         for symlink in symlinks:
             if not os.path.isfile(os.path.join(bin_folder, symlink)):
                 os.symlink(
