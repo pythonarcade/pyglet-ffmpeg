@@ -109,8 +109,6 @@ To make new binaries for Ubuntu, here are the required steps:
       --prefix="$HOME/ffmpeg_build" \
       --extra-cflags="-I$HOME/ffmpeg_build/include" \
       --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
-      --extra-ldsoflags="-Wl,-rpath,$ORIGIN" \
-      --extra-ldexeflags="-Wl,-rpath,$ORIGIN" \
       --extra-libs="-lpthread -lm" \
       --bindir="$HOME/bin" \
       --disable-programs \
