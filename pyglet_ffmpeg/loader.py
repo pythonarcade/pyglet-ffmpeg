@@ -46,7 +46,6 @@ def _locate_binaries():
     elif sys.platform == 'darwin':
         path = os.path.join(this_dir, 'MacOS')
         env_var = 'LD_LIBRARY_PATH'
-        pyglet.options['audio'] = ('openal', 'pulse', 'silent')
 
     elif sys.platform.startswith('linux'):
         if 'armv7l' in sys.platform:
@@ -55,7 +54,6 @@ def _locate_binaries():
             path = os.path.join(this_dir, 'linux_x86_64')
         _ensure_linux_symlinks(path)
         env_var = 'LD_LIBRARY_PATH'
-        pyglet.options['audio'] = ('openal', 'pulse', 'silent')
 
     paths = os.environ.get(env_var, '').split(os.pathsep)
     paths.append(path)
