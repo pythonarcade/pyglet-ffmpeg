@@ -81,7 +81,7 @@ def _ensure_linux_symlinks(bin_folder):
         'libswscale.so.5.*': ('libswscale.so.5', 'libswscale.so')
     }
     for glob_sofile, symlinks in links.items():
-        sofile = glob.glob(glob_sofile)[0]
+        sofile = glob.glob(os.path.join(bin_folder, glob_sofile))[0]
         for symlink in symlinks:
             if not os.path.isfile(os.path.join(bin_folder, symlink)):
                 os.symlink(
