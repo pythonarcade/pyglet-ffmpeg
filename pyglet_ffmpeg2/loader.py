@@ -9,8 +9,6 @@ import os
 import glob
 import pyglet
 
-print("IMPORT FFMPEG")
-
 def load_ffmpeg():
     """Load FFmpeg binaries.
     """
@@ -34,9 +32,7 @@ def _locate_binaries():
 
     this_dir = os.path.abspath(os.path.dirname(__file__))
 
-    print("AAB")
     if sys.platform == 'win32':
-        print("BBB")
         is64bit = sys.maxsize > 2 ** 32
 
         if is64bit:
@@ -61,7 +57,6 @@ def _locate_binaries():
     paths = os.environ.get(env_var, '').split(os.pathsep)
     paths.append(path)
     os.environ[env_var] = os.pathsep.join(paths)
-    print("Paths: ", paths)
 
     if sys.platform.startswith('linux'):
         # On linux, refresh the cache to take LD_LIBRARY_PATH into account
