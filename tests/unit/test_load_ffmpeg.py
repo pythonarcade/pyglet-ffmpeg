@@ -3,7 +3,7 @@
 
 import pytest
 import os
-import pyglet_ffmpeg
+import pyglet_ffmpeg2
 
 
 def test_ffmpeg_unavailable():
@@ -13,7 +13,7 @@ def test_ffmpeg_unavailable():
 
 def test_binaries_not_found(mocker, capsys):
     mocker.patch("pyglet_ffmpeg.loader._locate_binaries")
-    pyglet_ffmpeg.load_ffmpeg()
+    pyglet_ffmpeg2.load_ffmpeg()
     out, err = capsys.readouterr()
     assert out == "FFmpeg binaries could not be loaded.\n"
 
@@ -31,7 +31,7 @@ def test_locate_binaries(platform, arch, expected, mocker):
     mocksym = mocker.patch("pyglet_ffmpeg.loader._ensure_linux_symlinks")
     mockloader = mocker.patch("pyglet.lib.loader")
 
-    pyglet_ffmpeg.loader._locate_binaries()
+    pyglet_ffmpeg2.loader._locate_binaries()
 
     env_var = "PATH" if platform == "win32" else "LD_LIBRARY_PATH"
     expected_path = os.path.join("pyglet-ffmpeg", "pyglet_ffmpeg", expected)
@@ -44,7 +44,7 @@ def test_locate_binaries(platform, arch, expected, mocker):
 
 def test_load_ffmpeg():
     import pyglet
-    pyglet_ffmpeg.load_ffmpeg()
+    pyglet_ffmpeg2.load_ffmpeg()
     assert pyglet.media.have_ffmpeg()
 
 
@@ -58,7 +58,7 @@ def test_ensure_linux_symlinks(mocker):
     mocksym = mocker.patch("os.symlink")
 
     bin_folder = os.path.normpath("path/to/lib")
-    pyglet_ffmpeg.loader._ensure_linux_symlinks(bin_folder)
+    pyglet_ffmpeg2.loader._ensure_linux_symlinks(bin_folder)
 
     sofiles = (
         "libavcodec.so.58.1.2", "libavformat.so.58.1.2", "libswresample.so.3.1.2",

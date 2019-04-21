@@ -22,18 +22,18 @@ class _bdist_wheels(bdist_wheel):
     def finalize_options(self):
         super().finalize_options()
         pkg_data = plat_pkg_data[self.plat_name]
-        self.distribution.package_data = {'pyglet_ffmpeg': pkg_data}
+        self.distribution.package_data = {'pyglet_ffmpeg2': pkg_data}
 
 
 setup(
     cmdclass={'bdist_wheel': _bdist_wheels},
-    name='pyglet_ffmpeg',
-    version='0.1.5',
+    name='pyglet_ffmpeg2',
+    version='0.1.10',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
-    author='Daniel Gillet',
-    author_email='dan.gillet737@gmail.com',
+    author='Paul Craven',
+    author_email='paul@cravenfamily.com',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

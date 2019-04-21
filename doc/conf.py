@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'pyglet_ffmpeg'
-copyright = '2018, Daniel Gillet'
-author = 'Daniel Gillet'
+project = 'pyglet_ffmpeg2'
+copyright = '2019, Paul Craven'
+author = 'Paul Craven'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '0.0.1.dev0'
+release = '0.1.10'
 
 
 # -- General configuration ---------------------------------------------------
