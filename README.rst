@@ -42,4 +42,3 @@ Installation
 More information, including docs for developing pyglet-ffmpeg itself and
 API docs, are available
 `in the docs <https://pyglet-ffmpeg.readthedocs.io>`_.
-
