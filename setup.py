@@ -28,7 +28,7 @@ class _bdist_wheels(bdist_wheel):
 setup(
     cmdclass={'bdist_wheel': _bdist_wheels},
     name='pyglet_ffmpeg2',
-    version='0.1.12',
+    version='0.1.14',
     description='Platform wheels with ffmpeg binaries and ctypes for pyglet',
     long_description=long_description,
     url='https://github.com/pythonarcade/pyglet-ffmpeg',
@@ -44,6 +44,6 @@ setup(
     keywords='pyglet ffmpeg audio arcade',
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=[
-        'pyglet >= 1.4.0a1',
+        'pyglet >= 1.4.4',
     ],
 )
