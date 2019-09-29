@@ -48,7 +48,7 @@ def _locate_binaries():
         env_var = 'LD_LIBRARY_PATH'
 
     elif sys.platform.startswith('linux'):
-        if 'armv7l' in sys.platform:
+        if 'armv7l' in sys.platform or 'armv7l' in os.uname():
             path = os.path.join(this_dir, 'RPi')
         else:
             path = os.path.join(this_dir, 'linux_x86_64')
