@@ -51,6 +51,7 @@ def _locate_binaries():
             path = os.path.join(this_dir, 'RPi')
         else:
             path = os.path.join(this_dir, 'linux_x86_64')
+            path = path.replace("/lib/", "/lib64/")
         _ensure_linux_symlinks(path)
         env_var = 'LD_LIBRARY_PATH'
 
