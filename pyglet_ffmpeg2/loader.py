@@ -13,6 +13,7 @@ def load_ffmpeg():
     """Load FFmpeg binaries.
     """
 
+    print("Start")
     _locate_binaries()
     if pyglet.media.have_ffmpeg():
         from pyglet.media.codecs import ffmpeg
@@ -79,10 +80,17 @@ def _ensure_linux_symlinks(bin_folder):
         'libswscale.so.5.*': ('libswscale.so.5', 'libswscale.so')
     }
     for glob_sofile, symlinks in links.items():
-        sofile = glob.glob(os.path.join(bin_folder, glob_sofile))[0]
-        for symlink in symlinks:
-            if not os.path.isfile(os.path.join(bin_folder, symlink)):
-                os.symlink(
-                    os.path.join(bin_folder, sofile),
-                    os.path.join(bin_folder, symlink)
-                )
+        search_path = os.path.join(bin_folder, glob_sofile)
+        # print(f"AAA: {search_path}")
+        my_glob = glob.glob(search_path)
+        # print(f"BBB: {my_glob}")
+        if my_glob is not None and len(my_glob) > 0:
+            sofile = my_glob[0]
+            for symlink in symlinks:
+                if not os.path.isfile(os.path.join(bin_folder, symlink)):
+                    os.symlink(
+                        os.path.join(bin_folder, sofile),
+                        os.path.join(bin_folder, symlink)
+                    )
+        else:
+            print(f"Unable to find match for ffmpeg sound library at expected location: {search_path}")
