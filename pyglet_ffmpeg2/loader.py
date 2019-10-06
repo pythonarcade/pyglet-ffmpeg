@@ -13,7 +13,6 @@ def load_ffmpeg():
     """Load FFmpeg binaries.
     """
 
-    print("Start")
     _locate_binaries()
     if pyglet.media.have_ffmpeg():
         from pyglet.media.codecs import ffmpeg
